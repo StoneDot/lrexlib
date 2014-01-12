@@ -177,7 +177,7 @@ static void checkarg_compile (lua_State *L, int pos, TArgComp *argC) {
       argC->locale = lua_tostring (L, pos);
     else {
       argC->tablespos = pos;
-      argC->tables = *check_chartables (L, pos);
+      argC->tables = (const unsigned char *)(*check_chartables (L, pos));
     }
   }
 }
@@ -195,7 +195,7 @@ static int compile_regex (lua_State *L, const TArgComp *argC, TPcre **pud) {
 
   if (argC->locale) {
     char old_locale[256];
-    strcpy (old_locale, setlocale (LC_CTYPE, NULL));  /* store the locale */
+    strcpy_s (old_locale, 256, setlocale (LC_CTYPE, NULL));  /* store the locale */
     if (NULL == setlocale (LC_CTYPE, argC->locale))   /* set new locale */
       return luaL_error (L, "cannot set locale");
     ud->tables = tables = pcre_maketables ();  /* make tables with new locale */

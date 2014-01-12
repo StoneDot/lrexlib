@@ -7,3 +7,5 @@ ChangeLog
 release-notes
 /*.rockspec
 /luarocks
+Debug/
+Release/
