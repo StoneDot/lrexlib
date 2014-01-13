@@ -39,11 +39,9 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <LibraryPath>$(SolutionDir)LuaJIT\src;$(LibraryPath)</LibraryPath>
     <TargetName>rex_pcre</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <LibraryPath>$(SolutionDir)LuaJIT\src;$(LibraryPath)</LibraryPath>
     <TargetName>rex_pcre</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -56,7 +54,6 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>lua51-d.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -74,7 +71,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>lua51.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -87,6 +83,9 @@
     <ClInclude Include="src\common.h" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\LuaJIT\LuaJIT.vcxproj">
+      <Project>{09ed448b-3e44-43f5-907e-83dd097ed443}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\pcre\pcre.vcxproj">
       <Project>{1bc1fbc5-9412-4dfc-bf6f-9fbabaab8c2a}</Project>
     </ProjectReference>
