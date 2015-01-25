@@ -107,8 +107,12 @@ static int getcflags (lua_State *L, int pos) {
         else if (ch == 'm') res |= PCRE_MULTILINE;
         else if (ch == 's') res |= PCRE_DOTALL;
         else if (ch == 'x') res |= PCRE_EXTENDED;
+        else if (ch == 'A') res |= PCRE_ANCHORED;
+        else if (ch == 'D') res |= PCRE_DOLLAR_ENDONLY;
         else if (ch == 'U') res |= PCRE_UNGREEDY;
         else if (ch == 'X') res |= PCRE_EXTRA;
+        else if (ch == 'J') res |= PCRE_DUPNAMES;
+        else if (ch == 'u') res |= PCRE_UTF8;
       }
       return res;
     }
